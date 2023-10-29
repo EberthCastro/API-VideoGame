@@ -25,10 +25,10 @@ class SkinController extends Controller
         ]);
 
         Skin::create([
-            'nombre' => $request->content,
-            'tipos' => $request->value,
-            'precio' => $request->type,
-            'color'  => $request->type,
+            'nombre' => $request->nombre,
+            'tipos' => $request->tipos,
+            'precio' => $request->precio,
+            'color'  => $request->color,
         ]);
 
         return response([
