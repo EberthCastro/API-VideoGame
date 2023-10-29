@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('skins', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('tipos');
+            $table->string('precio');
+            $table->string('color');
             $table->timestamps();
         });
     }
