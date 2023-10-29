@@ -7,43 +7,66 @@ use Illuminate\Http\Request;
 
 class SkinController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $Skins = Skin::all();
+        return  response($Skins, 201);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'tipos' => 'required',
+            'precio' => 'required',
+            'color' => 'required',
+        ]);
+
+        Skin::create([
+            'nombre' => $request->content,
+            'tipos' => $request->value,
+            'precio' => $request->type,
+            'color'  => $request->type,
+        ]);
+
+        return response([
+            'message' => 'Skin created successfully'
+        ], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Skin $skin)
+
+    public function show($id)
     {
-        //
+        $Skin = Skin::findOrFail($id);
+        return response($Skin, 201);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Skin $skin)
+
+    public function update(Request $request, $id)
     {
-        //
+        $skin = Skin::findOrFail($id);
+
+        $attribute = [
+            'color' => $request->color,
+        ];
+
+        $skin->update($attribute);
+
+
+        return response([
+            'message' => 'Skin-Color updated successfully'
+        ], 201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Skin $skin)
+
+    public function destroy($id)
     {
-        //
+        $skin = Skin::findOrFail($id);
+
+        $skin->delete();
+
+        return response()->json(['message' => 'Skin deleted successfully'], 204);
     }
 }
