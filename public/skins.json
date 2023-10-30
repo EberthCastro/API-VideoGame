@@ -1,0 +1,26 @@
+{
+    "skins": [
+        {
+            "id": 1,
+            "nombre": "Skin 1",
+            "tipos": "Type A",
+            "precio": 10,
+            "color": "Red"
+        },
+        {
+            "id": 2,
+            "nombre": "Skin 2",
+            "tipos": "Type B",
+            "precio": 15,
+            "color": "Red"
+        },
+        {
+            "id": 3,
+            "nombre": "Skin 3",
+            "tipos": "Type C",
+            "precio": 12,
+            "color": "Green"
+        }
+        
+    ]
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Skin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SkinController extends Controller
 {
@@ -68,5 +69,18 @@ class SkinController extends Controller
         $skin->delete();
 
         return response()->json(['message' => 'Skin deleted successfully'], 204);
+    }
+
+    public function getAvailableSkins()
+    {
+        $jsonPath = public_path('skins.json'); // Replace with the path to your JSON file
+
+        if (!File::exists($jsonPath)) {
+            return response()->json(['message' => 'Skins file not found'], 404);
+        }
+
+        $skinsData = json_decode(File::get($jsonPath), true);
+
+        return response()->json($skinsData['skins'], 200);
     }
 }
