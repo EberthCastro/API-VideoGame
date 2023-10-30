@@ -73,7 +73,7 @@ class SkinController extends Controller
 
     public function getAvailableSkins()
     {
-        $jsonPath = public_path('skins.json'); // Replace with the path to your JSON file
+        $jsonPath = public_path('skins.json'); 
 
         if (!File::exists($jsonPath)) {
             return response()->json(['message' => 'Skins file not found'], 404);

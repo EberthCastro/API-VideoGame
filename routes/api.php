@@ -24,6 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/skins/available', [SkinController::class, 'getAvailableSkins' ]);
 Route::post('/skins/buy', [SkinController::class, 'store' ]);
 Route::get('/skins/myskins', [SkinController::class, 'index' ]);
-Route::put('/skins/color', [SkinController::class, 'update' ]);
+Route::put('/skins/color/{id}', [SkinController::class, 'update' ]);
 Route::delete('/skins/delete/{id}', [SkinController::class, 'destroy' ]);
-Route::get('/skins/getskin/{id}', [SkinController::class, 'show' ]);
+Route::get('/skin/getskin/{id}', [SkinController::class, 'show' ]);
