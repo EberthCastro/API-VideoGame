@@ -65,5 +65,5 @@ GET /skin/getskin/{id}: Retrieve details of a specific skin. Replace {id} with t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the MIT license[https://opensource.org/license/mit/].
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
