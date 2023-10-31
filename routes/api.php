@@ -20,4 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::resource('/skins', SkinController::class);
+
+Route::get('/skins/available', [SkinController::class, 'getAvailableSkins' ]);
+Route::post('/skins/buy', [SkinController::class, 'buySkinFromJson' ]);
+Route::get('/skins/myskins', [SkinController::class, 'index' ]);
+Route::put('/skins/color/{id}', [SkinController::class, 'update' ]);
+Route::delete('/skins/delete/{id}', [SkinController::class, 'destroy' ]);
+Route::get('/skin/getskin/{id}', [SkinController::class, 'show' ]);
