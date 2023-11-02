@@ -12,7 +12,7 @@ class SkinController extends Controller
     public function index()
     {
         $Skins = Skin::all();
-        return  response($Skins, 201);
+        return  response($Skins, 200);
     }
 
 
@@ -47,7 +47,7 @@ class SkinController extends Controller
             return response(['message' => 'Skin not found'], 404);
             
         } else {
-            return response($Skin, 201);    
+            return response($Skin, 200);    
         } 
         
     }
@@ -61,7 +61,7 @@ class SkinController extends Controller
         if ($Skin) {
             
             $Skin->update(['color' => $request->color]);            
-            return response(['message' => 'Skin color updated successfully' , $Skin], 201);
+            return response(['message' => 'Skin color updated successfully' , $Skin], 200);
             
         } else {
             return response(['message' => 'Skin not found'], 404);
@@ -78,7 +78,7 @@ class SkinController extends Controller
             
             $Skin->delete();
     
-            return response(['message' => 'Skin deleted succesfully'], 204);
+            return response(['message' => 'Skin deleted succesfully'], 200);
         } else {
             return response(['message' => 'Skin not found'], 404);
         } 
@@ -94,7 +94,7 @@ class SkinController extends Controller
 
         $skinsData = json_decode(File::get($jsonPath), true);
 
-        return response()->json($skinsData['skins'], 201);
+        return response()->json($skinsData['skins'], 200);
     }
 
     public function buySkinFromJson(Request $request)
